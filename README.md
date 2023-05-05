@@ -1,2 +1,2 @@
 # ITMD-411-Final-Lab-
-In the folder YOu will find the whole project with all screenshot and documents
+Within the Tickets_2 folder you will find the whole project with all screenshot and documents. The reason Its named Tickets_2 is because the original Project became riddled with errors because I tried to add multiple new fields on the table, but alas after many hours of trying to get the build to work I had to cut my losses and started the program from anew, hence Tickets_2 was born.
