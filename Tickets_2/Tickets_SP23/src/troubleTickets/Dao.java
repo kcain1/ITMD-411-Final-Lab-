@@ -92,8 +92,6 @@ public class Dao {
 
 			statement = getConnection().createStatement();
 
-			// create loop to grab each array index containing a list of values
-			// and PASS (insert) that data into your User table
 			for (List<String> rowData : array) {
 
 				sql = "insert into kcain_users(uname,upass,admin) " + "values('" + rowData.get(0) + "'," + " '"

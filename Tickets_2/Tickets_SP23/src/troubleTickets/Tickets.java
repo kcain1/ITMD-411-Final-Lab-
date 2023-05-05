@@ -45,56 +45,49 @@ public class Tickets extends JFrame implements ActionListener {
 
     private void createMenu() {
 
-        /* Initialize sub menu items **************************************/
-
-        // initialize sub menu item for File main menu
+        // Initialize sub menu items for File main menu
         mnuItemExit = new JMenuItem("Exit");
-        // add to File main menu item
         mnuFile.add(mnuItemExit);
 
-        // initialize first sub menu items for Admin main menu
-        mnuItemUpdate = new JMenuItem("Update Ticket");
-        // add to Admin main menu item
-        mnuAdmin.add(mnuItemUpdate);
-
-        // initialize second sub menu items for Admin main menu
-        mnuItemDelete = new JMenuItem("Delete Ticket");
-        // add to Admin main menu item
-        mnuAdmin.add(mnuItemDelete);
-
-        // initialize first sub menu item for Tickets main menu
+        // Initialize sub menu items for Tickets main menu
         mnuItemOpenTicket = new JMenuItem("Open Ticket");
-        // add to Ticket Main menu item
         mnuTickets.add(mnuItemOpenTicket);
-
-        // initialize second sub menu item for Tickets main menu
         mnuItemViewTicket = new JMenuItem("View Ticket");
-        // add to Ticket Main menu item
         mnuTickets.add(mnuItemViewTicket);
 
-        // initialize any more desired sub menu items below
-
-        /* Add action listeners for each desired menu item *************/
+        // Add action listeners for each desired menu item
         mnuItemExit.addActionListener(this);
-        mnuItemUpdate.addActionListener(this);
-        mnuItemDelete.addActionListener(this);
         mnuItemOpenTicket.addActionListener(this);
         mnuItemViewTicket.addActionListener(this);
 
-        // set font and foreground color for menu items
+        // Set font and foreground color for menu items
         Font font = new Font("Arial", Font.PLAIN, 14);
         Color color = new Color(0, 102, 204);
         mnuItemExit.setFont(font);
-        mnuItemUpdate.setFont(font);
-        mnuItemDelete.setFont(font);
         mnuItemOpenTicket.setFont(font);
         mnuItemViewTicket.setFont(font);
         mnuItemExit.setForeground(color);
-        mnuItemUpdate.setForeground(color);
-        mnuItemDelete.setForeground(color);
         mnuItemOpenTicket.setForeground(color);
         mnuItemViewTicket.setForeground(color);
 
+        // Only show the Admin menu if the user is an admin
+        if (chkIfAdmin != null && chkIfAdmin) {
+            // Initialize sub menu items for Admin main menu
+            mnuItemUpdate = new JMenuItem("Update Ticket");
+            mnuAdmin.add(mnuItemUpdate);
+            mnuItemDelete = new JMenuItem("Delete Ticket");
+            mnuAdmin.add(mnuItemDelete);
+
+            // Add action listeners for each desired menu item
+            mnuItemUpdate.addActionListener(this);
+            mnuItemDelete.addActionListener(this);
+
+            // Set font and foreground color for menu items
+            mnuItemUpdate.setFont(font);
+            mnuItemDelete.setFont(font);
+            mnuItemUpdate.setForeground(color);
+            mnuItemDelete.setForeground(color);
+        }
     }
 
 	private void prepareGUI() {
@@ -103,7 +96,7 @@ public class Tickets extends JFrame implements ActionListener {
 	        // Nimbus look and feel
 	        UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 	    } catch (Exception e) {
-	        // If Nimbus is not available, you can set the system look and feel.
+	        // If Nimbus is not available, set the system look and feel.
 	        e.printStackTrace();
 	    }
 
